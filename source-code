@@ -1,0 +1,77 @@
+import java.util.Scanner;
+
+public class Factorial
+{
+
+	public static void main(String[] args)
+	{
+		
+		//Factorial class int variables and input scanner
+		@SuppressWarnings("resource")
+		Scanner in = new Scanner(System.in);
+		int x=0;//number for factorial
+		int y;//factorial
+		
+		//Print line to ask user for an integer to input
+		System.out.println("Enter number for factorial: ");
+		
+		/*When the input entered is an integer, boolean returns true
+		 * 'x' is then initialized as the input integer
+		*/
+		if(in.hasNextInt())
+		{
+			x=in.nextInt();
+		}
+		/*if input is not an integer, 'x' is set to '-1' to exit program
+		 * since '-1' prevents the while loop from starting
+		 */
+		else{
+			System.out.println("Not an Integer!");
+			x=-1;
+		}
+		
+		/*while loop iterates when input is not '-1'
+		 * 'y' is initialized as the factorial of input 'x'
+		 * Prints the input, its factorial, and to enter a new number
+		 */
+		while(x != -1)
+		{
+			y = factorial(x);
+			System.out.println("The Factorial of " +x+ " is " +y);
+			System.out.println("Enter Another #");
+			
+			/*Repeat of the if/else code above
+			 * loop terminates if input is not an integer or '-1'
+			 */
+			if(in.hasNextInt())
+			{
+				x = in.nextInt();
+			}
+			else{
+				System.out.println("Not an Integer!");
+				x=-1;
+			}
+		}//End of while loop, prints goodbye if input is '-1'
+		System.out.println("Goodbye");
+	}//End of main
+	
+	/*The factorial method, returns an int
+	 * Uses argument 'n', if negative int, prints error
+	 * Else if input n is a 0 or 1, return 1 as result
+	 * Else return the factorial of the input
+	 */
+	public static int factorial(int n)
+	{
+		if(n<0)
+		{
+			System.out.println("println error");
+		}
+		else if (n==0||n==1)
+			return 1;
+		else
+			return n*factorial(n-1);
+		return n;
+	}
+}//End of class Factorial
+
+
